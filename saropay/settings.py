@@ -135,7 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'userauths.User'
 
 JAZZMIN_SETTINGS = {
-    # "site_title": "MovieX",
+    "site_title": "SaroPay",
     "site_header": "SaroPay",
     "site_brand": "Prince of Payment...",
     #"site_logo": "images/logo.jpg",
