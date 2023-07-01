@@ -50,7 +50,7 @@ def LoginView(request):
 
     if request.user.is_authenticated:
         messages.warning(request, "You are already logged In")
-        return redirect("account:account")
+        return redirect("core_app.account:account")
         
     return render(request, "userauths/sign-in.html")
 
