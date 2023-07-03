@@ -1,5 +1,5 @@
 from django import forms
-from account.models import KYC
+from core_apps.account.models import KYC
 from django.forms import ImageField, FileInput, DateInput
 
 class DateInput(forms.DateInput):
@@ -10,13 +10,14 @@ class DateInput(forms.DateInput):
 class KYCForm(forms.ModelForm):
     identity_image = ImageField(widget=FileInput)
     image = ImageField(widget=FileInput)
+    signature = ImageField(widget=FileInput)
 
     class Meta:
         model = KYC
         fields = [
             'full_name',
             'image',
-            'marrital_status',
+            'marital_status',
             'gender',
             'identity_type',
             'identity_image',
@@ -48,5 +49,6 @@ class KYCForm(forms.ModelForm):
             ),
             "country": forms.TextInput(attrs={"placeholder": "Country",}),
             "state": forms.TextInput(attrs={"placeholder": "State",}),
-            "cityy": forms.TextInput(attrs={"placeholder": "City",}),            
+            "city": forms.TextInput(attrs={"placeholder": "City",}),
+            "date_of_birth": DateInput      
         }
