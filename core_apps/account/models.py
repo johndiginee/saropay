@@ -8,6 +8,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 ACCOUNT_STATUS = (
     ("active", "Active"),
+    ("pending", "Pending"),
     ("in-active", "In-active"),
 )
 
