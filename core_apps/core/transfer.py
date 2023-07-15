@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from core_apps.account.models import Account
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.contrib import messages
 
 @login_required
 def search_users_account_number(request):
@@ -18,3 +19,14 @@ def search_users_account_number(request):
         "query": query,
     }
     return render(request, "transfer/search-user-account-number.html", context)
+
+def AmountTransfer(request, account_number):
+    try:
+        account = Account.objects.get(account_number=account_number)
+    except:
+        messages.warning(request, "Account does not exist.")
+        return redirect("core_apps.core:search-account")
+    context = {
+        "account": account,
+    }
+    return render(request, "transfer/amount-transfer.html", context)
