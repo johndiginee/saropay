@@ -3,7 +3,7 @@ from core_apps.account.models import Account
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
-
+from decimal import Decimal
 from core_apps.core.models import Transaction
 
 @login_required
@@ -48,7 +48,7 @@ def AmountTransferProcess(request, account_number):
         print(amount)
         print(description)
 
-        if sender_account.account_balance > 0 and amount:
+        if sender_account.account_balance >= Decimal(amount):
             """Check avaliable funds, and create new transaction."""
             new_transaction = Transaction.objects.create(
                 user=request.user,
@@ -121,10 +121,25 @@ def TransferProcess(request, account_number, transaction_id):
             account.save()
 
             messages.success(request, "Transfer Successful.")
-            return redirect("core_apps.account:account")
+            return redirect("core_apps.core:transfer-completed", account.account_number, transaction.transaction_id)
         else:
              messages.warning(request, "Incorrect Pin.")
              return redirect('core_apps.core:transfer-confirmation', account.account_number, transaction.transaction_id)
     else:
         messages.warning(request, "An error occured, Try again.")
         return redirect("core_apps.account:account")
+
+
+def TransferComplete(request, account_number, transaction_id):
+    try:
+        account = Account.objects.get(account_number=account_number)
+        transaction = Transaction.objects.get(transaction_id=transaction_id)
+    except:
+        messages.warning(request, "Transfer dooesn't exist.")
+        return redirect("core_apps.account:account")
+
+    context = {
+        "account": account,
+        "transaction": transaction,
+    }
+    return render(request, "transfer/transfer-completed.html", context)
