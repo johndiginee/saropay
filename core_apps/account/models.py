@@ -3,8 +3,8 @@ import uuid
 from shortuuid.django_fields import ShortUUIDField
 from core_apps.userauths.models import User
 from django.db.models.signals import post_save
-from django_countries.fields import CountryField
-from phonenumber_field.modelfields import PhoneNumberField
+# from django_countries.fields import CountryField
+# from phonenumber_field.modelfields import PhoneNumberField
 
 ACCOUNT_STATUS = (
     ("active", "Active"),
@@ -76,12 +76,12 @@ class KYC(models.Model):
     signature = models.ImageField(upload_to="kyc", default="default.jpg")
 
     """Address"""
-    country = CountryField(default="NG", blank=True)
+    country = models.CharField(max_length=1000)
     state = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
 
     """Contact Detail"""
-    mobile = PhoneNumberField(max_length=30)
+    mobile = models.CharField(max_length=1000)
     fax = models.CharField(max_length=1000)
     date = models.DateTimeField(auto_now_add=True)
 

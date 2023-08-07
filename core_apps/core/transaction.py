@@ -7,12 +7,19 @@ from django.contrib import messages
 
 @login_required
 def transaction_lists(request):
-    sender_transaction = Transaction.objects.filter(sender=request.user).order_by("-id")
-    receiver_transaction = Transaction.objects.filter(receiver=request.user).order_by("-id")
+    sender_transaction = Transaction.objects.filter(sender=request.user, transaction_type="transfer").order_by("-id")
+    receiver_transaction = Transaction.objects.filter(receiver=request.user, transaction_type="transfer").order_by("-id")
+
+    request_sender_transaction = Transaction.objects.filter(sender=request.user, transaction_type="request")
+    request_receiver_transactiion = Transaction.objects.filter(receiver=request.user, transaction_type="request")
+
 
     context = {
         "sender_transaction": sender_transaction,
         "receiver_transaction": receiver_transaction,
+
+        "request_sender_transaction": request_sender_transaction,
+        "request_receiver_transactiion": request_receiver_transactiion
     }
 
     return render(request, "transaction/transaction-list.html", context)
