@@ -3,6 +3,8 @@ from core_apps.account.models import KYC, Account
 from core_apps.account.forms import KYCForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from core_apps.core.forms import CreditCardForm
+from core_apps.core.models import CreditCard, Transaction
 
 @login_required
 def account(request):
@@ -60,6 +62,21 @@ def dashboard(request):
             return redirect("core_apps.account:kyc-reg")
 
         account = Account.objects.get(user=request.user)
+        credit_card = CreditCard.objects.filter(user=request.user)
+
+        if request.method == "POST":
+            form = CreditCardForm(request.POST)
+            if form.is_valid():
+                new_form = form.save(commit=False)
+                new_form.user = request.user
+                new_form.save()
+
+                card_id = new_form.card_id
+                messages.success(request, "Card Added Successfully.")
+                return redirect("core_apps.account:dashboard")
+        else:
+            form = CreditCardForm()
+
     else:
         messages.warning(request, "You need to login to dashboard.")
         return redirect("core_apps.userauths:sign-in")
@@ -67,5 +84,7 @@ def dashboard(request):
     context = {
         "kyc": kyc,
         "account": account,
+        "form": form,
+        "credit_card": credit_card,
     }
     return render(request, "account/dashboard.html", context)
