@@ -1,6 +1,7 @@
 {% extends 'partials/dashboard-base.html' %}
 {% load static %}
 {% load humanize %}
+{% block title %}Transaction Details{% endblock %}
 {% block content  %}
 
     <!-- Dashboard Section start -->
@@ -20,7 +21,7 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header justify-content-between">
                                                             <h5>Transaction Details</h5>
-                                                            <a href="{% url 'core_apps.account:dashboard' %}"><i class="material-symbols-outlined"><img src="{% static 'assets/images/icon/left-arrow.png' %}" alt="icon"></i></a>
+                                                            <a href="{% url 'core_apps.core:transactions' %}"><i class="material-symbols-outlined"><img src="{% static 'assets/images/icon/left-arrow.png' %}" alt="icon"></i></a>
                                                         </div>
                                                         <div class="main-content">
                                                             <div class="row">
