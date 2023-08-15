@@ -93,10 +93,10 @@
                             <div class="owner-details">
                                 <div class="profile-area">
                                     <div class="profile-img">
-                                        <img src="{% static 'assets1/images/owner-profile.png' %}" alt="image">
+                                        <img style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;" src="{{ kyc.image.url }}" alt="image">
                                     </div>
                                     <div class="name-area">
-                                        <h6>Alfred Davis</h6>
+                                        <h6>{{ kyc.full_name|title }}</h6>
                                         <p class="active-status">Active</p>
                                     </div>
                                 </div>
@@ -104,16 +104,9 @@
                                     <ul>
                                         <li>
                                             <p>Account ID:</p>
-                                            <span class="mdr">Rex49484</span>
+                                            <span class="mdr">{{account.account_number}}</span>
                                         </li>
-                                        <li>
-                                            <p>Joined:</p>
-                                            <span class="mdr">Aug 25,2021</span>
-                                        </li>
-                                        <li>
-                                            <p>Confirm status:</p>
-                                            <span class="mdr">80%</span>
-                                        </li>
+                                      
                                     </ul>
                                 </div>
                                 <div class="owner-action">
@@ -448,7 +441,7 @@
                                                 </div>
                                                 <div class="single-card">
                                                     <button type="button" class="reg w-100" data-bs-toggle="modal" data-bs-target="#transactionsMod">
-                                                        <img src="{% static 'assets1/images/paylio-card.png' %}" alt="image" class="w-100">
+                                                        <img src="{% static 'assets1/images/SaroPay-card.png' %}" alt="image" class="w-100">
                                                     </button>
                                                 </div>
                                                 <div class="single-card">
@@ -605,7 +598,7 @@
                                                         <span>5880 **** **** 8854</span>
                                                     </div>
                                                     <a href="javascript:void(0)">
-                                                        <i class="icon-h-edit"></i>
+                                                        
                                                         Edit
                                                     </a>
                                                 </div>

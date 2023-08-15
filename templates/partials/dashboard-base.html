@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Paylio - Money Transfer and Online Payments Dashboard HTML Template</title>
+    <title>SaroPay - Money Transfer and Online Payments Dashboard </title>
 
     <link rel="shortcut icon" href="{% static 'assets1/images/fav.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'assets1/css/bootstrap.min.css' %}">
@@ -47,85 +47,6 @@
                             </div>
                         </form>
                         <div class="dashboard-nav">
-                            <div class="single-item language-area">
-                                <div class="language-btn">
-                                    <img src="{% static 'assets1/images/icon/lang.png' %}" alt="icon">
-                                </div>
-                                <ul class="main-area language-content">
-                                    <li>English</li>
-                                    <li>Hindi</li>
-                                    <li class="active">English (US)</li>
-                                    <li>Japanese</li>
-                                    <li>Kannada</li>
-                                    <li>Lithuanian</li>
-                                </ul>
-                            </div>
-                            <div class="single-item notifications-area">
-                                <div class="notifications-btn">
-                                    <img src="{% static 'assets1/images/icon/bell.png' %}" class="bell-icon" alt="icon">
-                                </div>
-                                <div class="main-area notifications-content">
-                                    <div class="head-area d-flex justify-content-between">
-                                        <h5>Notifications</h5>
-                                        <span class="mdr">4</span>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <a href="javascript:void(0)" class="d-flex">
-                                                <div class="img-area">
-                                                    <img src="{% static 'assets1/images/user-1.png' %}" class="max-un" alt="image">
-                                                </div>
-                                                <div class="text-area">
-                                                    <p class="mdr">You received a payment of <b>$134.00</b> from <b>Anna
-                                                            Green</b></p>
-                                                    <p class="mdr time-area">09.39AM</p>
-                                                </div>
-                                            </a>
-                                            <i class="fa-solid fa-caret-right"></i>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" class="d-flex">
-                                                <div class="img-area">
-                                                    <img src="{% static 'assets1/images/user-2.png' %}" class="max-un" alt="image">
-                                                </div>
-                                                <div class="text-area">
-                                                    <p class="mdr"><b>James Deed</b> requested a payment of
-                                                        <b>£890.00</b>
-                                                    </p>
-                                                    <p class="mdr time-area">08.09AM</p>
-                                                </div>
-                                            </a>
-                                            <i class="fa-solid fa-caret-right"></i>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" class="d-flex">
-                                                <div class="img-area">
-                                                    <img src="{% static 'assets1/images/master-card.png' %}" class="max-un" alt="image">
-                                                </div>
-                                                <div class="text-area">
-                                                    <p class="mdr">Your new payment method has beed added successfully
-                                                    </p>
-                                                    <p class="mdr time-area">09.39AM</p>
-                                                </div>
-                                            </a>
-                                            <i class="fa-solid fa-caret-right"></i>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" class="d-flex">
-                                                <div class="img-area">
-                                                    <img src="{% static 'assets1/images/user-3.png' %}" class="max-un" alt="image">
-                                                </div>
-                                                <div class="text-area">
-                                                    <p class="mdr">You received a payment of <b>$250.00</b> from Goerge Michael
-                                                    </p>
-                                                    <p class="mdr time-area">Yesterday</p>
-                                                </div>
-                                            </a>
-                                            <i class="fa-solid fa-caret-right"></i>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                             <div class="single-item user-area">
                                 <div class="profile-area d-flex align-items-center">
                                     <span class="user-profile">
@@ -154,7 +75,7 @@
                                             <a href="{% url 'core_apps.account:account' %}"><i class="fas fa-cog"></i>Settings</a>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0)"><i class="fas fa-sign-out"></i>Logout</a>
+                                            <a href="{% url 'core_apps.userauths:sign-out' %}"><i class="fas fa-sign-out"></i>Logout</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -189,31 +110,7 @@
                                     <img src="{% static 'assets1/images/icon/receive.png' %}" alt="Receive"> <span>Receive</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="money-exchange.html">
-                                    <img src="{% static 'assets1/images/icon/exchange.png' %}" alt="Exchange"> <span>Exchange</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="recipients.html">
-                                    <img src="{% static 'assets1/images/icon/recipients.png' %}" alt="Recipients"> <span>Recipients</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="crypto.html">
-                                    <img src="{% static 'assets1/images/icon/crypto.png' %}" alt="Crypto"> <span>Crypto</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="deposit-money.html">
-                                    <img src="{% static 'assets1/images/icon/deposit.png' %}" alt="Deposit"> <span>Deposit Money</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="withdraw-money-step-1.html">
-                                    <img src="{% static 'assets1/images/icon/withdraw.png' %}" alt="Withdraw"> <span>Withdraw Money</span>
-                                </a>
-                            </li>
+                            
                         </ul>
                         <ul class="bottom-item">
                             <li class="active">
@@ -221,13 +118,9 @@
                                     <img src="{% static 'assets1/images/icon/account.png' %}" alt="Account"> <span>Account</span>
                                 </a>
                             </li>
+                            
                             <li>
-                                <a href="javascript:void(0)">
-                                    <img src="{% static 'assets1/images/icon/support.png' %}" alt="Support"> <span>Support</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">
+                                <a href="{% url 'core_apps.userauths:sign-out' %}">
                                     <img src="{% static 'assets1/images/icon/quit.png' %}" alt="Quit"> <span>Quit</span>
                                 </a>
                             </li>

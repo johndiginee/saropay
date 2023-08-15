@@ -10,9 +10,7 @@
                 <div class="main-content">
                     <div class="head-area d-flex align-items-center justify-content-between">
                         <h4>Make a Payment</h4>
-                        <div class="icon-area">
-                            <img src="{% static 'assets1/images/icon/support-icon.png' %}" alt="icon">
-                        </div>
+                        
                     </div>
                     <div class="choose-recipient">
                         <div class="step-area">
@@ -35,7 +33,7 @@
                                 <div class="right">
                         
                                     <a href="{% url 'core_apps.core:search-account' %}">
-                                        <i class="icon-h-edit"></i>
+                                        
                                         Edit
                                     </a>
                                 </div>
@@ -46,8 +44,8 @@
                         <div class="top-area">
                             <h6>Payment Details</h6>
                             <div class="right">
-                                <a href="javascript:void(0)">
-                                    <i class="icon-h-edit"></i>
+                                <a href="{% url 'core_apps.core:amount-transfer' account.account_number %}">
+                                    
                                     Edit
                                 </a>
                             </div>
@@ -89,7 +87,7 @@
                             <label for="confirm">I confirm the payment details above</label>
                         </div>
                         <div class="footer-area mt-40">
-                            <a href="pay-step-2.html">Previous Step</a>
+                            <a href="{% url 'core_apps.core:amount-transfer' account.account_number %}">Previous Step</a>
                             <a href="javascript:void(0)" class="transferMod active" data-bs-toggle="modal" data-bs-target="#transferMod">Pay</a>
                         </div>
                     </form>

@@ -3,6 +3,7 @@
 @font-face {
     font-family: 'arafat font';
     src: url('../webfonts/arafat-font.eot');
+    src: url("{% static 'assets1/webfonts/arafat-font.eot' %}");
     src: url('../webfonts/arafat-font.eot?#iefix') format('embedded-opentype'), url('../webfonts/arafat-font.woff') format('woff'), url('../webfonts/arafat-font.ttf') format('truetype'), url('../webfonts/arafat-font.svg#arafat-font') format('svg');
     font-weight: normal;
     font-style: normal;

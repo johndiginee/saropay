@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from core_apps.account.models import Account
+from core_apps.account.models import Account, KYC
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
@@ -13,6 +13,8 @@ def SearchUsersRequest(request):
     account = Account.objects.all()
     query = request.POST.get("account_number")
 
+    kyc = KYC.objects.get(user=request.user)
+
     if query:
         account = account.filter(
             Q(account_number=query)|
@@ -22,13 +24,18 @@ def SearchUsersRequest(request):
     context = {
         "account": account,
         "query": query,
+        "kyc": kyc,
     }
     return render(request, "payment_request/search-users.html", context)
 
 def AmountRequest(request, account_number):
     account = Account.objects.get(account_number=account_number)
+
+    kyc = KYC.objects.get(user=request.user)
+
     context = {
         "account": account,
+        "kyc": kyc,
     }
     return render(request, "payment_request/amount-request.html", context)
 

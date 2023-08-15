@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from core_apps.account.models import Account
+from core_apps.account.models import Account, KYC
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
@@ -10,6 +10,9 @@ from core_apps.core.models import Transaction
 def search_users_account_number(request):
     account = Account.objects.all()
     query = request.POST.get("account_number")
+
+    kyc = KYC.objects.get(user=request.user)
+
     if query:
         account = account.filter(
             Q(account_number=query)|
@@ -19,10 +22,13 @@ def search_users_account_number(request):
     context = {
         "account": account,
         "query": query,
+        "kyc": kyc,
     }
     return render(request, "transfer/search-user-account-number.html", context)
 
 def AmountTransfer(request, account_number):
+    kyc = KYC.objects.get(user=request.user)
+
     try:
         account = Account.objects.get(account_number=account_number)
     except:
@@ -30,6 +36,7 @@ def AmountTransfer(request, account_number):
         return redirect("core_apps.core:search-account")
     context = {
         "account": account,
+        "kyc": kyc,
     }
     return render(request, "transfer/amount-transfer.html", context)
 
@@ -76,6 +83,8 @@ def AmountTransferProcess(request, account_number):
 
 
 def TransferConfirmation(request, account_number, transaction_id):
+    kyc = KYC.objects.get(user=request.user)
+
     try:
         account = Account.objects.get(account_number=account_number)
         transaction = Transaction.objects.get(transaction_id=transaction_id)
@@ -86,6 +95,7 @@ def TransferConfirmation(request, account_number, transaction_id):
     context = {
         "account": account,
         "transaction": transaction,
+        "kyc": kyc,
     }
     return render(request, "transfer/transfer-confirmation.html", context)
 
@@ -131,6 +141,8 @@ def TransferProcess(request, account_number, transaction_id):
 
 
 def TransferComplete(request, account_number, transaction_id):
+    kyc = KYC.objects.get(user=request.user)
+
     try:
         account = Account.objects.get(account_number=account_number)
         transaction = Transaction.objects.get(transaction_id=transaction_id)
@@ -141,5 +153,6 @@ def TransferComplete(request, account_number, transaction_id):
     context = {
         "account": account,
         "transaction": transaction,
+        "kyc": kyc,
     }
     return render(request, "transfer/transfer-completed.html", context)

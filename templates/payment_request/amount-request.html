@@ -10,9 +10,7 @@
                 <div class="main-content">
                     <div class="head-area d-flex align-items-center justify-content-between">
                         <h4>Request Payment</h4>
-                        <div class="icon-area">
-                            <img src="{% static 'assets1/images/icon/support-icon.png' %}" alt="icon">
-                        </div>
+                        
                     </div>
                     <div class="choose-recipient">
                         <div class="step-area">
@@ -35,7 +33,7 @@
                                 <div class="right">
                         
                                     <a href="{% url 'core_apps.core:search-account' %}">
-                                        <i class="icon-h-edit"></i>
+                                        
                                         Edit
                                     </a>
                                 </div>
@@ -47,7 +45,7 @@
                         <div class="send-banance">
                             <span class="mdr">You Request</span>
                             <div class="input-area">
-                                <input class="xxlr" placeholder="Enter Amount Request" type="number" name="amount-request" id="amount-request">
+                                <input class="xxlr" placeholder="Enter Amount Request" type="number" name="amount-request" id="amount-request" required>
                                 
                             </div>
                             
@@ -56,7 +54,7 @@
                         <div class="send-banance pt-0 mt-0">
                             <span class="mdr">Request Description</span>
                             <div class="input-area">
-                                <input class="xxlr" placeholder="eg. Requesting money for rent" type="text" name="description">
+                                <input class="xxlr" placeholder="eg. Requesting money for rent" type="text" name="description" required>
                             
                             </div>
                         </div>
