@@ -98,8 +98,15 @@
                                     </div>
                                     <div class="name-area">
                                         <h6>{{ kyc.full_name|title }}</h6>
-                                        <p class="active-status">Active</p>
-                                    </div>
+                                        {% if account.account_status == "in-active" %}
+                                        <p class="active-stadtus text-danger">{{account.account_status|title}}</p>
+                                        {% endif %}
+                                        {% if account.account_status == "active" %}
+                                            <p class="active-status">{{account.account_status|title}}</p>
+                                        {% endif %}
+                                        {% if account.account_status == "pending" %}
+                                            <p class="actidve-status text-warning">{{account.account_status|title}}</p>
+                                        {% endif %}                                    </div>
                                 </div>
                                 <div class="owner-info">
                                     <ul>
@@ -195,16 +202,19 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="single-input">
+                                                        <label for="fName">Select Gender</label>
                                                         {{ form.gender }}
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="single-input">
+                                                        <label for="fName">Marital Status</label>
                                                         {{ form.marital_status }}
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="single-input">
+                                                        <label for="fName">Identity Type</label>
                                                         {{ form.identity_type }}
                                                     </div>
                                                 </div>
