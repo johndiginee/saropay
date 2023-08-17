@@ -4,7 +4,7 @@ from core_apps.account.forms import KYCForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from core_apps.core.forms import CreditCardForm
-from core_apps.core.models import CreditCard, Transaction
+from core_apps.core.models import CreditCard
 
 @login_required
 def account(request):

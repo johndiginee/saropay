@@ -1,6 +1,5 @@
 from django.contrib import admin
 from core_apps.account.models import Account, KYC
-from core_apps.userauths.models import User
 from import_export.admin import ImportExportModelAdmin
 
 

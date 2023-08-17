@@ -1,8 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from core_apps.core.models import Transaction
-from core_apps.account.models import Account, KYC
+from core_apps.account.models import KYC
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
 
 
 @login_required

@@ -41,7 +41,7 @@ def AmountTransfer(request, account_number):
     return render(request, "transfer/amount-transfer.html", context)
 
 def AmountTransferProcess(request, account_number):
-    account = Account.objects.get(account_number=account_number) ## get the sender's account
+    account = Account.objects.get(account_number=account_number) # get the sender's account
     sender = request.user # get the person that is logged in
     reciever = account.user # get the reciever account
 
