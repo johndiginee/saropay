@@ -44,6 +44,7 @@ ignore =
     F841,
     E111,
     E117,
+    E713,
 
 max-line-length = 200
 
