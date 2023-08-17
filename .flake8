@@ -6,7 +6,7 @@ exclude =
     .gitignore,
     *.pot,
     *.py[co],
-    .git
+    .git,
 
 ignore =
     E121,
