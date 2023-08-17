@@ -30,7 +30,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     name: deploy our django application to heroku
-    steps
+    steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Deploy app
