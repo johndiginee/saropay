@@ -31,13 +31,13 @@ jobs:
     runs-on: ubuntu-latest
     name: deploy our django application to heroku
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        
-      - name: Deploy app
-        uses: akhileshns/heroku-deploy@v3.12.14 # This is the action
-          with:
-            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-            heroku_app_name: ${{secrets.HEROKU_APP_NAME}} #Must be unique in Heroku
-            heroku_email: "johndbizz@gmail.com"
-            branch: "master"
+       - name: Checkout code
+         uses: actions/checkout@v2
+
+       - name: Deploy app
+         uses: akhileshns/heroku-deploy@v3.12.14 # This is the action
+            with:
+              heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+              heroku_app_name: ${{secrets.HEROKU_APP_NAME}} #Must be unique in Heroku
+              heroku_email: "johndbizz@gmail.com"
+              branch: "master"
