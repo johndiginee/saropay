@@ -21,7 +21,7 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header justify-content-between">
                                                             <h5>Credit Card</h5>
-                                                            <a href="{% url 'core_apps.account:dashboard' %}"><i class="material-symbols-outlined">arrow_back</i></a>
+                                                            <a href="{% url 'core_apps.account:dashboard' %}"><i class="material-symbols-outlined"><img src="{% static 'assets/images/icon/left-arrow.png' %}" alt="icon"></i></a>
                                                         </div>
                                                         <div class="main-content">
                                                             <div class="row">
@@ -33,7 +33,7 @@
                                                                                 <div class="top_card">
                                                                                     <span class="visa">{{credit_card.card_type|upper}}</span>
                                                                                     <div class="logo">
-                                                                                        <img src="{% static 'assets1/images/logo.png' %}" class="logo" alt="logo">
+                                                                                        <img src="{% static 'assets1/images/card-logo.png' %}" class="logo" alt="logo">
                             
                                                                                     </div>
                                                                                 </div>

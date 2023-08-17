@@ -41,10 +41,10 @@
                         <form method="POST" class="flex-fill">
                             {% csrf_token %}
                             
-                            <div class="form-group d-flex align-items-center">
+                            <!-- <div class="form-group d-flex align-items-center">
                                 <img src="{% static 'assets1/images/icon/search.png' %}" alt="icon">
                                 <input type="text" placeholder="Type to search...">
-                            </div>
+                            </div> -->
                         </form>
                         <div class="dashboard-nav">
                             <div class="single-item user-area">
@@ -143,6 +143,11 @@
         </div>
         {% endfor %}
         {% endif %}
+        <script>
+            setTimeout (() => {
+                $(".alert").alert("close");
+            }, 4000)
+        </script>
     </header>
     <!-- header-section end -->
 {% block content %}
