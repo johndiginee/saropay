@@ -187,6 +187,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'userauths.User'
 
+ADMIN_URL = 'access2023/'
+
 JAZZMIN_SETTINGS = {
     "site_title": "SaroPay",
     "site_header": "SaroPay",
