@@ -3,7 +3,7 @@ from core_apps.core.models import CreditCard
 
 class CreditCardForm(forms.ModelForm):
     name = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Card Holder Name"}))
-    number = forms.CharField(widget=forms.NumberInput(attrs={"placeholder":"Card Number"}))
+    number = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Card Number"}))
     month = forms.IntegerField(widget=forms.NumberInput(attrs={"placeholder":"Expiry Month"}))
     year = forms.IntegerField(widget=forms.NumberInput(attrs={"placeholder":"Expiry Year"}))
     cvv = forms.IntegerField(widget=forms.NumberInput(attrs={"placeholder":"CVV"}))
