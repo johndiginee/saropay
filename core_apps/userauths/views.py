@@ -16,6 +16,9 @@ def RegisterView(request):
             new_user = authenticate(username=form.cleaned_data['email'], password=form.cleaned_data['password1'])
             login(request, new_user)
             return redirect("core_apps.account:account")
+        else:
+            messages.warning(request, 'Your password must contain 9 or more characters!')
+            return redirect("core_apps.userauths:sign-up")
     if request.user.is_authenticated:
         messages.warning(request, f"You're already logged in.")
         return redirect("core_apps.account:account")
