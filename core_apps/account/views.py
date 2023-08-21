@@ -12,7 +12,7 @@ def account(request):
         try:
             kyc = KYC.objects.get(user=request.user)
         except:
-            messages.warning(request, "You need to submit your KYC.")
+            # messages.warning(request, "You need to submit your KYC.")
             return redirect("core_apps.account:kyc-reg")
 
         account = Account.objects.get(user=request.user)
